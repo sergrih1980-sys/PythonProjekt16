@@ -5,10 +5,11 @@ load_dotenv()
 
 DB_CONFIG = {
     'host': os.getenv('DB_HOST', 'localhost'),
-    'database': os.getenv('DB_NAME', 'hh_vacancies'),
+    'port': int(os.getenv('DB_PORT', 5432)),
+    'database': os.getenv('DB_NAME', 'test_db'),
     'user': os.getenv('DB_USER', 'postgres'),
     'password': os.getenv('DB_PASSWORD', ''),
-    'port': os.getenv('DB_PORT', '5432')
+    'client_encoding': 'UTF8'
 }
 
 # Список ID компаний для сбора данных (не менее 10)

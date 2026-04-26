@@ -2,6 +2,24 @@ import psycopg2
 from src.api_client import HHApiClient
 from config import DB_CONFIG
 
+
+def validate_encoding():
+    """Проверяет корректность кодировки параметров"""
+    for key, value in DB_CONFIG.items():
+        if isinstance(value, str):
+            try:
+                value.encode('utf-8')
+            except UnicodeEncodeError:
+                print(f"Проблема с кодировкой в параметре {key}: {value}")
+                return False
+    return True
+
+@staticmethod
+def create_database():
+    if not validate_encoding():
+        raise ValueError("Обнаружены некорректные символы в параметрах подключения")
+
+
 class DBSetup:
     """Класс для создания и настройки БД"""
 
