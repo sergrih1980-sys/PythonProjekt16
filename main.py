@@ -1,6 +1,7 @@
-from db_setup import DBSetup
+from src.db_setup import DBSetup
 from config import EMPLOYER_IDS
-from db_manager import DBManager
+from src.db_manager import DBManager
+
 
 def main():
     # Создаём БД и таблицы

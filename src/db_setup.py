@@ -1,5 +1,5 @@
 import psycopg2
-from api_client import HHApiClient
+from src.api_client import HHApiClient
 from config import DB_CONFIG
 
 class DBSetup:
