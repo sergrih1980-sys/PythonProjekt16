@@ -34,5 +34,16 @@ def main():
     for company, title, salary_from, salary_to, url in python_vacancies[:5]:
         print(f"{company} — {title}: {salary_from}-{salary_to} руб. — {url}")
 
+
+    # Пример заполнения данных
 if __name__ == "__main__":
     main()
+    # Создаём БД и таблицы
+    DBSetup.create_database()
+    DBSetup.create_tables()
+
+    # ID 10 компаний для сбора вакансий
+    employer_ids = [12345, 67890, 11223, 45678, 90123, 34567, 89012, 23456, 78901, 56789]
+
+    # Заполняем данными
+    DBSetup.populate_data(employer_ids)
